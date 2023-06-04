@@ -18,17 +18,12 @@
                             <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html"> About</a>
+                            <a class="nav-link" href="about.html"> Category</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="product.html">Products</a>
+                            <a class="nav-link" href="product.html">Contact</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="why.html">Why Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="testimonial.html">Testimonial</a>
-                        </li>
+
                     </ul>
                 </div>
             </nav>
