@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'donner' => [
+            'driver' => 'session',
+            'provider' => 'donner',
+        ],
     ],
 
     /*
@@ -63,6 +67,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'donner' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\DonnerModel::class,
         ],
 
         // 'users' => [
