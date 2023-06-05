@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DonnerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,4 +47,8 @@ Route::post('/contact', [HomeController::class, 'HomeContact']);
 Route::get('/readBlog/{id}', [BlogController::class, 'blogRead']);
 Route::get('/allBlog', [BlogController::class, 'blogIndex']);
 Route::get('/donner', [DonnerController::class, 'DonnerIndex'])->middleware(['donner'])->name('donner');
+Route::get('/AdminWelcome', [AdminController::class, 'Index'])->middleware(['donner'])->name('donner');
+Route::get('/AddProduct', [AdminController::class, 'AddProduct'])->middleware(['donner']);
+
+
 require __DIR__ . '/auth.php';

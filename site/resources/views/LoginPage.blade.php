@@ -10,9 +10,9 @@
                 <form action="{{ route('donner.login' )}}  " method="post" class="m-5 loginForm">
                     @csrf
                     <div class="form-group">
-                        <label for="exampleInputEmail1">User Name</label>
-                        <input required name="username" type="text" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" placeholder="Enter User Name" />
+                        <label for="exampleInputEmail1">Email</label>
+                        <input required name="email" type="email" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Enter Email" />
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>

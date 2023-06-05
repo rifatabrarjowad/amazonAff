@@ -61,8 +61,8 @@ class DonnerController extends Controller
     function Login(Request $request)
     {
         $check = $request->all();
-        if (Auth::guard('donner')->attempt(['username' => $check['username'], 'password' => $check['password']])) {
-            return redirect('/')->with('error', 'Login sucessfully');
+        if (Auth::guard('donner')->attempt(['email' => $check['email'], 'password' => $check['password'], 'status' => 1])) {
+            return redirect('/AdminWelcome')->with('error', 'Login sucessfully');
         } else {
             return back()->with('error', 'Invalid Credentials');
         }
