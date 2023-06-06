@@ -49,6 +49,6 @@ Route::get('/allBlog', [BlogController::class, 'blogIndex']);
 Route::get('/donner', [DonnerController::class, 'DonnerIndex'])->middleware(['donner'])->name('donner');
 Route::get('/AdminWelcome', [AdminController::class, 'Index'])->middleware(['donner'])->name('donner');
 Route::get('/AddProduct', [AdminController::class, 'AddProduct'])->middleware(['donner']);
-
+Route::post('/AddPro', [AdminController::class, 'AddPro'])->middleware(['donner'])->name('product.add');
 
 require __DIR__ . '/auth.php';

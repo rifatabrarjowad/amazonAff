@@ -2,14 +2,15 @@
 @section('content')
 <div class="container">
     <h1>Add Product</h1>
-    <form>
+    <form action="{{ route('product.add' )}}" enctype="multipart/form-data" method="post">
+        @csrf
         <div class="form-group">
             <label for="name">Product Name:</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Enter product name">
         </div>
         <div class="form-group">
             <label for="link">Link :</label>
-            <input type="link" class="form-control" id="link" name="link" placeholder="Enter Link">
+            <input type="text" class="form-control" id="link" name="link" placeholder="Enter Link">
         </div>
         <div class="form-group">
             <label for="price">Price:</label>
@@ -22,7 +23,7 @@
         </div>
         <div class="form-group">
             <label for="image">Image:</label>
-            <input type="file" class="form-control-file" id="image">
+            <input type="file" name='img' class="form-control-file" id="image">
         </div>
         <button type="submit" class="btn btn-primary">Add Product</button>
     </form>
@@ -66,8 +67,8 @@
             </tr>
             <tr>
                 <td>Product 2</td>
-                <td><img></td>
-                <td>Description 2</td>
+                <td><img src="http://localhost:8000/images/p1.png" alt="Product Img" width="50px" height="50px" /></td>
+                <td><a href="#">Product Link</a></td>
                 <td>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="actionsDropdown2"

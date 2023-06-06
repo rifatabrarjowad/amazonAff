@@ -18,9 +18,6 @@
                             <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html"> Category</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="product.html">Contact</a>
                         </li>
                         @if(Auth::guard('donner')->check())
