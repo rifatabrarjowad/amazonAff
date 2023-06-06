@@ -48,40 +48,21 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($productData as $product)
             <tr>
-                <td>Product 1</td>
-                <td>$10.00</td>
-                <td>Description 1</td>
+                <td>{{$product->title}}</td>
+                <td><img src="{{asset('uploads/product/'.$product->image)}}" alt="Product Img" width="50px"
+                        height="50px" /></td>
+                <td><a href="#">{{$product->link}}</a></td>
                 <td>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="actionsDropdown1"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Actions
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="actionsDropdown1">
-                            <a class="dropdown-item" href="#">Edit</a>
-                            <a class="dropdown-item" href="#">Delete</a>
-                        </div>
-                    </div>
+                    <a class="" href="#">Edit</a> ||
+                    <a class="" href="#">Delete</a>
+
                 </td>
+
             </tr>
-            <tr>
-                <td>Product 2</td>
-                <td><img src="http://localhost:8000/images/p1.png" alt="Product Img" width="50px" height="50px" /></td>
-                <td><a href="#">Product Link</a></td>
-                <td>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="actionsDropdown2"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Actions
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="actionsDropdown2">
-                            <a class="dropdown-item" href="#">Edit</a>
-                            <a class="dropdown-item" href="#">Delete</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+            @endforeach
+
             <!-- Add more rows for other products -->
         </tbody>
     </table>

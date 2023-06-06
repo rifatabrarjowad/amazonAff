@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProductModel;
 use Illuminate\Http\Request;
 
 use App\Models\ContactModel;
@@ -11,7 +12,9 @@ class HomeController extends Controller
     function HomeIndex()
     {
 
-        return view('Home');
+        $productData = json_decode(ProductModel::all());
+
+        return view('Home', ['productData' => $productData]);
 
     }
     function HomeContact(Request $request)

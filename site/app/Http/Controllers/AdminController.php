@@ -13,7 +13,9 @@ class AdminController extends Controller
     }
     function AddProduct()
     {
-        return view('AddProduct');
+        $productData = json_decode(ProductModel::all());
+
+        return view('AddProduct', ['productData' => $productData]);
     }
     function AddPro(Request $request)
     {
