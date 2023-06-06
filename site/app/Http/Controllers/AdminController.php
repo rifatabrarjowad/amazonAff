@@ -10,4 +10,8 @@ class AdminController extends Controller
     {
         return view('AdminDas');
     }
+    function AddProduct()
+    {
+        return view('AddProduct');
+    }
 }
