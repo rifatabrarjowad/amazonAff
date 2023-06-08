@@ -11,7 +11,7 @@
                  <div class="box">
                      <div class="img-box">
                          <img src="{{asset('uploads/product/'.$product->image)}}" alt="Product Img" />
-                         <a href="{{$product->link}}" target="_blank" class="add_cart_btn">
+                         <a href="{{$product->id}}" target="_blank" class="add_cart_btn">
                              <span> Get The Product</span>
                          </a>
                      </div>
