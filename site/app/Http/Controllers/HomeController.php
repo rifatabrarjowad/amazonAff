@@ -17,6 +17,14 @@ class HomeController extends Controller
         return view('Home', ['productData' => $productData]);
 
     }
+    function ProductIndex()
+    {
+
+
+
+        return view('Product');
+
+    }
     function HomeContact(Request $request)
     {
         $contact = new ContactModel;

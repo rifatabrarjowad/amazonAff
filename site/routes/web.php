@@ -39,6 +39,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/', [HomeController::class, 'HomeIndex']);
+Route::get('/product/{id}', [HomeController::class, 'ProductIndex']);
+
+
+
 Route::get('/profile', [ProfileController::class, 'Index'])->middleware(['donner'])->name('donner');
 Route::post('/profileUpdate', [ProfileController::class, 'IndexUpdate'])->middleware(['donner'])->name('donner');
 Route::get('/profileD', [ProfileController::class, 'profileD'])->middleware(['donner'])->name('donner');
@@ -47,6 +51,7 @@ Route::post('/contact', [HomeController::class, 'HomeContact']);
 Route::get('/readBlog/{id}', [BlogController::class, 'blogRead']);
 Route::get('/allBlog', [BlogController::class, 'blogIndex']);
 Route::get('/donner', [DonnerController::class, 'DonnerIndex'])->middleware(['donner'])->name('donner');
+
 Route::get('/AdminWelcome', [AdminController::class, 'Index'])->middleware(['donner'])->name('donner');
 Route::get('/AddProduct', [AdminController::class, 'AddProduct'])->middleware(['donner']);
 Route::post('/AddPro', [AdminController::class, 'AddPro'])->middleware(['donner'])->name('product.add');
