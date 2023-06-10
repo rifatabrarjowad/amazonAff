@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ProductModel;
 use App\Models\VisitorModel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Models\ContactModel;
@@ -27,7 +28,7 @@ class HomeController extends Controller
         $UserIP = '103.148.74.81';
 
         date_default_timezone_set("Asia/Dhaka");
-        $timeDate = date("Y-m-d h:i:sa");
+        $timeDate = Carbon::now()->format('Y-m-d H:i:s');
         $currentUserInfo = Location::get($UserIP);
 
 
@@ -39,6 +40,7 @@ class HomeController extends Controller
         VisitorModel::insert([
             'pId' => $productID->id,
             'vIp' => $UserIP,
+            'vTime' => $timeDate,
             'vCountry' => $currentUserInfo->countryName,
             'vCity' => $currentUserInfo->cityName,
             'vPost' => $currentUserInfo->zipCode

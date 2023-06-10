@@ -37,34 +37,37 @@
     </div>
 </footer>
 <div class="container">
+
     <h1>Product Management</h1>
     <table class="table">
         <thead>
             <tr>
                 <th>Product Name</th>
                 <th>Image</th>
+                <th>Visit</th>
                 <th>Link</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach($productData as $product)
+            @php
+            $visitorCount = $DB::table('visitor')->where('pId', $product->id)->count();
+            @endphp
             <tr>
                 <td>{{$product->title}}</td>
                 <td><img src="{{asset('uploads/product/'.$product->image)}}" alt="Product Img" width="50px"
                         height="50px" /></td>
+                <td>{{ $visitorCount }}</td>
                 <td><a href="#">{{$product->link}}</a></td>
                 <td>
                     <a class="" href="#">Edit</a> ||
                     <a class="" href="{{url('delete/'.$product->id)}}">Delete</a>
-
                 </td>
-
             </tr>
             @endforeach
-
-            <!-- Add more rows for other products -->
         </tbody>
+
     </table>
 </div>
 

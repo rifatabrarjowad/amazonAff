@@ -6,18 +6,31 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\File;
 use App\Models\ProductModel;
+use App\Models\VisitorModel;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
     function Index()
     {
-        return view('AdminDas');
+        $visit = VisitorModel::orderBy('vTime', 'desc')->get();
+
+        return view('AdminDas', [
+            'visit' => $visit,
+            'DB' => DB::class,
+            'Carbon' => Carbon::class,
+        ]);
     }
     function AddProduct()
     {
         $productData = json_decode(ProductModel::all());
 
-        return view('AddProduct', ['productData' => $productData]);
+        return view('AddProduct', [
+            'productData' => $productData,
+            'DB' => DB::class,
+            'Carbon' => Carbon::class,
+        ]);
     }
     function AddPro(Request $request)
     {
