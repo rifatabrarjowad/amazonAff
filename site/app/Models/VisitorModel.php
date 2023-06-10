@@ -7,9 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class VisitorModel extends Model
 {
-    public $table = 'visitor';
-    public $primaryKey = 'id';
-    public $incrementing = true;
-    public $keyType = 'int';
-    public $timestamps = false;
+    use HasFactory;
+    protected $table = 'visitor';
+    protected $fillable = [
+        'id',
+        'pId',
+        'vTime',
+        'vIp',
+        'vCountry',
+        'vCity',
+        'vPost'
+    ];
 }

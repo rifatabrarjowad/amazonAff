@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\BlogModel;
 use Illuminate\Http\Request;
+use Stevebauman\Location\Facades\Location;
 
 class BlogController extends Controller
 {
