@@ -17,12 +17,13 @@ class HomeController extends Controller
         return view('Home', ['productData' => $productData]);
 
     }
-    function ProductIndex()
+    function ProductIndex($id)
     {
+        $productData = json_decode(ProductModel::all());
 
+        $productID = ProductModel::find($id);
+        return view('Product', ['productData' => $productData, 'productID' => $productID]);
 
-
-        return view('Product');
 
     }
     function HomeContact(Request $request)

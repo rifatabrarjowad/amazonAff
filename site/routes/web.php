@@ -40,6 +40,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/', [HomeController::class, 'HomeIndex']);
 Route::get('/product/{id}', [HomeController::class, 'ProductIndex']);
+Route::get('/delete/{id}', [AdminController::class, 'deleteProduct']);
 
 
 

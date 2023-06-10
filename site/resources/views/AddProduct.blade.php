@@ -56,7 +56,7 @@
                 <td><a href="#">{{$product->link}}</a></td>
                 <td>
                     <a class="" href="#">Edit</a> ||
-                    <a class="" href="#">Delete</a>
+                    <a class="" href="{{url('delete/'.$product->id)}}">Delete</a>
 
                 </td>
 

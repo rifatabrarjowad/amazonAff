@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\File;
 use App\Models\ProductModel;
 
 class AdminController extends Controller
@@ -42,5 +44,15 @@ class AdminController extends Controller
         return redirect('/AddProduct')->with('status', 'Blog Created Successfully');
 
 
+    }
+    function deleteProduct($id)
+    {
+        $blog = ProductModel::find($id);
+        $destination = 'uploads/product/' . $blog->image;
+        if (File::exists($destination)) {
+            File::delete($destination);
+        }
+        $blog->delete();
+        return redirect('/AddProduct')->with('status', 'Blog Deleted Successfully');
     }
 }
