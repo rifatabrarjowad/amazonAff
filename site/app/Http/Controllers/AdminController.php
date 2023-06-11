@@ -14,7 +14,7 @@ class AdminController extends Controller
 {
     function Index()
     {
-        $visit = VisitorModel::orderBy('vTime', 'desc')->get();
+        $visit = VisitorModel::orderBy('id', 'desc')->get();
 
         return view('AdminDas', [
             'visit' => $visit,

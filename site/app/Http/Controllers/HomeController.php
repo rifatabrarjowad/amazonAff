@@ -13,7 +13,30 @@ use App\Models\ContactModel;
 use Stevebauman\Location\Facades\Location;
 
 class HomeController extends Controller
-{ //
+{ // $UserIP2 = $_SERVER['REMOTE_ADDR'];
+    //$UserIP = '103.148.74.81';
+    function ProductIndexStore($id)
+    {
+        //$UserIP = $_SERVER['REMOTE_ADDR'];
+        //$UserIP = Request::ip();
+        $UserIP = '103.148.74.81';
+        $timeDate = now()->toDateTimeString();
+        $currentUserInfo = Location::get($UserIP);
+
+        $productData = ProductModel::all();
+        $productID = ProductModel::find($id);
+
+        $visitStore = new VisitorModel;
+        $visitStore->pId = $productID->id;
+        $visitStore->vIp = $UserIP;
+        $visitStore->vTime = $timeDate;
+        $visitStore->vCountry = $currentUserInfo->countryName;
+        $visitStore->vCity = $currentUserInfo->cityName;
+        $visitStore->vPost = $currentUserInfo->zipCode;
+        $visitStore->save();
+        return view('Product', ['productData' => $productData, 'productID' => $productID]);
+    }
+
     function HomeIndex()
     {
 
@@ -22,33 +45,7 @@ class HomeController extends Controller
         return view('Home', ['productData' => $productData]);
 
     }
-    function ProductIndex($id)
-    {
-        // $UserIP = $_SERVER['REMOTE_ADDR'];
-        $UserIP = '103.148.74.81';
 
-        date_default_timezone_set("Asia/Dhaka");
-        $timeDate = Carbon::now()->format('Y-m-d H:i:s');
-        $currentUserInfo = Location::get($UserIP);
-
-
-
-        $productData = json_decode(ProductModel::all());
-
-        $productID = ProductModel::find($id);
-
-        VisitorModel::insert([
-            'pId' => $productID->id,
-            'vIp' => $UserIP,
-            'vTime' => $timeDate,
-            'vCountry' => $currentUserInfo->countryName,
-            'vCity' => $currentUserInfo->cityName,
-            'vPost' => $currentUserInfo->zipCode
-        ]);
-        return view('Product', ['productData' => $productData, 'productID' => $productID]);
-
-
-    }
     function HomeContact(Request $request)
     {
         $contact = new ContactModel;

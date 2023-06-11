@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg custom_nav-container">
                 <a class="navbar-brand" href="{{url('/')}}">
-                    <span> Minics </span>
+                    <span> Amazon </span>
                 </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -17,9 +17,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{url('/')}}">Home <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="product.html">Contact</a>
-                        </li>
+
                         @if(Auth::guard('donner')->check())
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/AdminWelcome')}}">Dashboard</a>
