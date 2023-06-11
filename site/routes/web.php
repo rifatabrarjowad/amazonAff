@@ -39,7 +39,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/', [HomeController::class, 'HomeIndex']);
-Route::get('/product/{id}', [HomeController::class, 'ProductIndexStore']);
+//Route::get('/product/{id}', [HomeController::class, 'ProductIndexStore']);
+Route::get('/product/{id}', [HomeController::class, 'HomeContact']);
 Route::get('/delete/{id}', [AdminController::class, 'deleteProduct'])->middleware(['donner']);
 
 

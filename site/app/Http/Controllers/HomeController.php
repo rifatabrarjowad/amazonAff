@@ -25,7 +25,6 @@ class HomeController extends Controller
 
         $productData = ProductModel::all();
         $productID = ProductModel::find($id);
-
         $visitStore = new VisitorModel;
         $visitStore->pId = $productID->id;
         $visitStore->vIp = $UserIP;
@@ -46,14 +45,22 @@ class HomeController extends Controller
 
     }
 
-    function HomeContact(Request $request)
+    function HomeContact($id)
     {
-        $contact = new ContactModel;
-        $contact->name = $request->name;
-        $contact->mobile = $request->mobile;
-        $contact->email = $request->email;
-        $contact->massage = $request->massage;
-        $contact->save();
-        return redirect('/')->with('status', 'Massage sent Successfully');
+        $UserIP = '103.148.74.81';
+        $timeDate = now()->toDateTimeString();
+        $currentUserInfo = Location::get($UserIP);
+
+        $productData = ProductModel::all();
+        $productID = ProductModel::find($id);
+        $visitStore = new VisitorModel;
+        $visitStore->pId = $productID->id;
+        $visitStore->vIp = $UserIP;
+        $visitStore->vTime = $timeDate;
+        $visitStore->vCountry = $currentUserInfo->countryName;
+        $visitStore->vCity = $currentUserInfo->cityName;
+        $visitStore->vPost = $currentUserInfo->zipCode;
+        $visitStore->save();
+        return view('Product', ['productData' => $productData, 'productID' => $productID]);
     }
 }
